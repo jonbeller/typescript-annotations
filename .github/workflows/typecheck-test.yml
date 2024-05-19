@@ -21,7 +21,7 @@ jobs:
       - name: Run TypeScript compiler
         id: tsc
         run: |
-          npx tsc --noEmit --pretty false
+          npx tsc --noEmit
       #      > tsc_output.txt || true
 
       # - name: Convert TypeScript errors to annotations
