@@ -15,9 +15,9 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Clear any existing npmrc configuration
+      - name: Remove any existing npmrc configuration
         run: |
-          echo "" > ~/.npmrc
+          rm -f ~/.npmrc
 
       - name: Debug npm configuration
         run: npm config list
@@ -28,7 +28,6 @@ jobs:
       - name: Run TypeScript compiler
         id: tsc
         run: |
-          touch tsc_output.txt
           npx tsc --noEmit --pretty false > tsc_output.txt
         continue-on-error: true
 
