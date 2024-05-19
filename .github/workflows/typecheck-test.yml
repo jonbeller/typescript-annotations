@@ -24,7 +24,7 @@ jobs:
           npm config set registry https://registry.npmjs.org/
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: Run TypeScript compiler
         id: tsc
