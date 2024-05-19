@@ -31,4 +31,5 @@ jobs:
       - name: Convert TypeScript errors to annotations
         if: failure()
         run: |
+          pwd
           node .github/scripts/tsc-to-annotations.js
