@@ -20,16 +20,14 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Install dependencies
-        run: npm install --loglevel verbose
+        run: npm install
 
       - name: Run TypeScript compiler
         id: tsc
         run: |
-          npx tsc --noEmit --pretty false > tsc_output.txt || true
+          npx tsc --noEmit --pretty false
+      #      > tsc_output.txt || true
 
-      - name: Print TypeScript compiler output
-        run: cat tsc_output.txt
-
-      - name: Convert TypeScript errors to annotations
-        run: |
-          node .github/scripts/tsc-to-annotations.js
+      # - name: Convert TypeScript errors to annotations
+      #   run: |
+      #     node .github/scripts/tsc-to-annotations.js
