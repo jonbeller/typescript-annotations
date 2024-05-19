@@ -1,1 +1,1 @@
-boo = haha;
+console.log("Hello, TypeScript");
