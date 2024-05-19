@@ -15,9 +15,8 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Remove any existing npmrc configuration
-        run: |
-          rm -f ~/.npmrc
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Configure npm to use the public registry
         run: |
