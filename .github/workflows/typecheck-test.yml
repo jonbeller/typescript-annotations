@@ -28,11 +28,11 @@ jobs:
       - name: Run TypeScript compiler
         id: tsc
         run: |
-          npx tsc --noEmit --pretty false > tsc_output.txt
-        continue-on-error: true
+          npx tsc --noEmit --pretty false > tsc_output.txt || true
+
+      - name: Print TypeScript compiler output
+        run: cat tsc_output.txt
 
       - name: Convert TypeScript errors to annotations
-        if: failure()
         run: |
-          pwd
           node .github/scripts/tsc-to-annotations.js
