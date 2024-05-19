@@ -18,12 +18,8 @@ jobs:
       - name: Authenticate with npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - name: Configure npm to use the public registry
-        run: |
-          npm config set registry https://registry.npmjs.org/
-
       - name: Install dependencies
-        run: npm i
+        run: npm ci
 
       - name: Run TypeScript compiler
         id: tsc
