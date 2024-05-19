@@ -17,6 +17,7 @@ jobs:
 
       - name: Clear any existing npmrc configuration
         run: |
+          cat ~/.npmrc
           echo "" > ~/.npmrc
 
       - name: Install dependencies
